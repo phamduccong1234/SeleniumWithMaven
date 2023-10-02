@@ -1,4 +1,5 @@
 package pages;
+
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -18,9 +19,9 @@ public class WebTablesPage extends Page {
 	By btnSearch = By.id("basic-addon2");
 
 	By btnAddRecord = By.id("addNewRecordButton");
-	
+
 	By lbRowsTable = By.xpath("//div[@class='rt-tr-group']");
-	
+
 	By lbColumsTable = By.xpath("//div[@class='rt-td']");
 
 	public void inputSearchBox(String keyword) {

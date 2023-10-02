@@ -1,5 +1,7 @@
 package tests;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
@@ -28,34 +30,37 @@ public class FormsTest extends TestCase{
 		String inputSubject1 = "M";
 		String inputSubject2 = "E";
 		String inputCurrentAddress = "Ha Noi";
+		String inputState = "NCR";
+		String inputCity = "Delhi";
 		
-		practiceFormPage.inputFirstName(inputFirstName);
-		practiceFormPage.inputLastName(inputLastName);
-		practiceFormPage.inputUserMail(inputEmail);
-		practiceFormPage.clickGender();
-		practiceFormPage.inputUserNumber(inputUserNumber);
+		practiceFormPage.testBasic.inputText(practiceFormPage.txtFirstName, inputFirstName);
+		practiceFormPage.testBasic.inputText(practiceFormPage.txtLastName, inputLastName);
+		practiceFormPage.testBasic.inputText(practiceFormPage.txtUserMail, inputEmail);
+		practiceFormPage.testBasic.clickRadioButtonByLabel("Male");
+		practiceFormPage.testBasic.inputText(practiceFormPage.txtUserNumber, inputUserNumber);
 		practiceFormPage.inputDOB();
-		practiceFormPage.selectYear();
-		practiceFormPage.selectMonth();
-		practiceFormPage.selectDay();
-		practiceFormPage.inputSubject(inputSubject1);
-		practiceFormPage.keyEnterSubject();
-		practiceFormPage.inputSubject(inputSubject2);
-		practiceFormPage.keyEnterSubject();
-		practiceFormPage.clickHobbie();
+		practiceFormPage.selectYear("1998");
+		practiceFormPage.selectMonth("December");
+		practiceFormPage.selectDay("9");
+		practiceFormPage.testBasic.inputText(practiceFormPage.txtSubject, inputSubject1);
+		practiceFormPage.testBasic.keysEnter(practiceFormPage.txtSubject);
+		practiceFormPage.testBasic.inputText(practiceFormPage.txtSubject, inputSubject2);
+		practiceFormPage.testBasic.keysEnter(practiceFormPage.txtSubject);
+		practiceFormPage.testBasic.clickCheckboxByLabel("Sports");
+		practiceFormPage.testBasic.clickCheckboxByLabel("Reading");
 		practiceFormPage.inputUploadPicture();
-		practiceFormPage.inputCurrentAddress(inputCurrentAddress);
+		practiceFormPage.testBasic.inputText(practiceFormPage.txtCurrentAddress, inputCurrentAddress);
 		
 		JavascriptExecutor js = (JavascriptExecutor) testBasic.driver;
-		js.executeScript("document.body.style.zoom = '60%';");
+		js.executeScript("document.body.style.zoom = '70%';");
 		
-		practiceFormPage.selectState();
-		practiceFormPage.keyDownState();
-		practiceFormPage.keyEnterState();
+		practiceFormPage.testBasic.inputText(practiceFormPage.mnState, inputState);
+		practiceFormPage.testBasic.keysEnter(practiceFormPage.mnState);
 		
-		practiceFormPage.selectCity();
-		practiceFormPage.keyDownCity();
-		practiceFormPage.keyEnterCity();
+		testBasic.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		
+		practiceFormPage.testBasic.inputText(practiceFormPage.mnCity, inputCity);
+		practiceFormPage.testBasic.keysEnter(practiceFormPage.mnCity);
 		
 		practiceFormPage.clickSubmitButton();
 		

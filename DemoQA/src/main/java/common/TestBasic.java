@@ -1,6 +1,7 @@
 package common;
 
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -13,7 +14,6 @@ public class TestBasic {
 		System.setProperty("webdriver.chrome.driver", localDir + "\\src\\main\\resources\\drivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		
 		driver.get(url);
 	}
 	
@@ -24,4 +24,25 @@ public class TestBasic {
 	public void closeCurentWindow() {
 		driver.close();
 	}
+	
+	public void inputText(By locator, String text) {
+		driver.findElement(locator).sendKeys(text);
+	}
+	
+	public void clickRadioButtonByLabel(String radioLabel) {
+		String xpathRadio = "//*[text()='" + radioLabel + "']";
+		By rdElement = By.xpath(xpathRadio);
+		driver.findElement(rdElement).click();
+	}
+	
+	public void keysEnter(By locator) {
+		driver.findElement(locator).sendKeys(Keys.ENTER);
+	}
+	
+	public void clickCheckboxByLabel(String checkboxLabel) {
+		String xpathCheckbox = "//*[text()='" + checkboxLabel + "']";
+		By cbElement = By.xpath(xpathCheckbox);
+		driver.findElement(cbElement).click();
+	}
+	
 }

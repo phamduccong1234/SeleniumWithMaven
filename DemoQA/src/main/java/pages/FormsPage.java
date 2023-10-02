@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class FormsPage extends Page{
-	
+
 	By menuPracticeForm = By.xpath("//span[text()='Practice Form']");
 	
 	public PracticeFormPage clickPracticeFormMenu() {
