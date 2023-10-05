@@ -24,11 +24,4 @@ public class Page {
 	public WebElement findElementByLocator(By locator) {
 		return driver.findElement(locator);
 	}
-
-	public Page(WebDriver dr) {
-		driver = dr;
-	}
-	
-	
-
 }

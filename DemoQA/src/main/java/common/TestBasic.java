@@ -5,6 +5,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import pages.Page;
+
 public class TestBasic {
 	
 	public WebDriver driver;
@@ -44,5 +46,4 @@ public class TestBasic {
 		By cbElement = By.xpath(xpathCheckbox);
 		driver.findElement(cbElement).click();
 	}
-	
 }
