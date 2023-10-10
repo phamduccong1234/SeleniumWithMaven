@@ -17,11 +17,7 @@ public class CheckBoxPage extends Page {
 
 	By lbHomes = By.xpath("//div[@id='result']/span");
 
-	By icExpandAll = By.xpath("//button[@title='Expand all']");
-
-	public void clickHomeCheckBox() {
-		driver.findElement(cbHome).click();
-	}
+	public By icExpandAll = By.xpath("//button[@title='Expand all']");
 
 	public String getHomeString() {
 		String result = "";
@@ -30,10 +26,6 @@ public class CheckBoxPage extends Page {
 			result = result + e.getText() + " ";
 		}
 		return result.trim(); // clear space start & end
-	}
-
-	public void clickExpandAll() {
-		driver.findElement(icExpandAll).click();
 	}
 
 	public boolean isCheckBoxUnchecked(By locator) {
@@ -73,7 +65,8 @@ public class CheckBoxPage extends Page {
 	}
 
 	public CheckBoxPage(WebDriver dr) {
-		driver = dr;
+//		driver = dr;
+		super(dr);
 	}
 
 }

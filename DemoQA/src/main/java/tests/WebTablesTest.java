@@ -1,4 +1,8 @@
 package tests;
+import java.util.Iterator;
+import java.util.List;
+
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import pages.ElementsPage;
@@ -6,12 +10,31 @@ import pages.HomePage;
 import pages.WebTablesPage;
 
 public class WebTablesTest extends TestCase{
-	
 	/**
 	 * TextBox - TC01
 	 */
-	@Test
+//	@Test
 	public void doTC01() {
+		//Click vào phần tử
+		HomePage homePage = new HomePage(testBasic.driver);
+		
+		ElementsPage elementsPage = homePage.clickElements();
+		WebTablesPage webTablesPage = elementsPage.clickWebTablesMenu();
+		
+		String inputKeySearch = "e";
+		
+		webTablesPage.testBasic.clickByLocator(webTablesPage.btnSearch);
+		
+		boolean result = webTablesPage.isCheckSearchResult(webTablesPage.lbFirstName, inputKeySearch);
+		
+		Assert.assertTrue(result);
+	}
+	
+	/**
+	 * TextBox - TC02
+	 */
+	@Test
+	public void doTC02() {
 		//Click vào phần tử
 		HomePage homePage = new HomePage(testBasic.driver);
 		
@@ -25,35 +48,49 @@ public class WebTablesTest extends TestCase{
 		String inputSalary = "800";
 		String inputDepartment = "Ha Noi";
 		
-		webTablesPage.clickAddButton();
+		String inputKeySearch = "con";
 		
-		webTablesPage.inputFirstName(inputFirstName);
-		webTablesPage.inputLastName(inputLastName);
-		webTablesPage.inputEmail(inputEmail);
-		webTablesPage.inputAge(inputAge);
-		webTablesPage.inputSalary(inputSalary);
-		webTablesPage.inputDepartment(inputDepartment);
+		webTablesPage.testBasic.clickByLocator(webTablesPage.btnAddRecord);
 		
-//		String actualFirstName = textBoxPage.getTextResult(textBoxPage.lbName);
-//		String actualLastName = textBoxPage.getTextResult(textBoxPage.lbEmail);
-//		String actualCurrentAddress = textBoxPage.getTextResult(textBoxPage.lbCurrentAddress);
-//		String actualPermanentAddress = textBoxPage.getTextResult(textBoxPage.lbPermanentAddress);
-//		String actualFirstName = textBoxPage.getTextResult(textBoxPage.lbName);
-//		String actualFirstName = textBoxPage.getTextResult(textBoxPage.lbName);
+		webTablesPage.testBasic.inputText(webTablesPage.txtFirstName, inputFirstName);
+		webTablesPage.testBasic.inputText(webTablesPage.txtLastName, inputLastName);
+		webTablesPage.testBasic.inputText(webTablesPage.txtEmail, inputEmail);
+		webTablesPage.testBasic.inputText(webTablesPage.txtAge, inputAge);
+		webTablesPage.testBasic.inputText(webTablesPage.txtSalary, inputSalary);
+		webTablesPage.testBasic.inputText(webTablesPage.txtDepartment, inputDepartment);
 		
-		// Assert - TestNG : Compare actual vs expect
-//		Assert.assertEquals(actualFullName, inputFullName); 
-//		Assert.assertEquals(actualEmail, inputEmail);
-//		Assert.assertEquals(actualCurrentAddress, inputCurrentAddress);
-//		Assert.assertEquals(actualPermanentAddress, inputPermanentAddress);
+		webTablesPage.testBasic.submit(webTablesPage.btnSubmit);
 		
-//		String inputKeyWord = "Cierra";
-//		
-//		webTablesPage.inputSearchBox(inputKeyWord);
-//		
-//		webTablesPage.clickSearchButton();
+		webTablesPage.testBasic.clickByLocator(webTablesPage.btnSearch);
 		
+		boolean result = webTablesPage.isCheckSearchResult(webTablesPage.lbLastName, inputKeySearch);
 		
+		Assert.assertTrue(result);
+		
+		List<String> lsFirstName = webTablesPage.getFirstNameString();
+		for (String actualFirstName : lsFirstName) {
+			Assert.assertEquals(actualFirstName, inputFirstName); 
+		}
+		List<String> lsLastName = webTablesPage.getLastNameString();
+		for (String actualLastName : lsLastName) {
+			Assert.assertEquals(actualLastName, inputLastName);
+		}
+		List<String> lsAge = webTablesPage.getAgeString();
+		for (String actualAge : lsAge) {
+			Assert.assertEquals(actualAge, inputAge);
+		}
+		List<String> lsEmail = webTablesPage.getEmailString();
+		for (String actualEmail : lsEmail) {
+			Assert.assertEquals(actualEmail, inputEmail);
+		}
+		List<String> lsSalary = webTablesPage.getSalaryString();
+		for (String actualSalary : lsSalary) {
+			Assert.assertEquals(actualSalary, inputSalary);
+		}
+		List<String> lsDepartment = webTablesPage.getDepartmentString();
+		for (String actualDepartment : lsDepartment) {
+			Assert.assertEquals(actualDepartment, inputDepartment);
+		}
 	}
 
 }

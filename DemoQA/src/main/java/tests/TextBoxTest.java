@@ -24,12 +24,12 @@ public class TextBoxTest extends TestCase{
 		String inputCurrentAddress = "Ha Noi";
 		String inputPermanentAddress = "Ha Noi";
 		
-		textBoxPage.inputFullName(inputFullName);
-		textBoxPage.inputEmail(inputEmail);
-		textBoxPage.inputCurrentAddress(inputCurrentAddress);
-		textBoxPage.inputPermanentAddress(inputPermanentAddress);
+		textBoxPage.testBasic.inputText(textBoxPage.txtFullName, inputFullName);
+		textBoxPage.testBasic.inputText(textBoxPage.txtEmail, inputEmail);
+		textBoxPage.testBasic.inputText(textBoxPage.txtCurrentAddress, inputCurrentAddress);
+		textBoxPage.testBasic.inputText(textBoxPage.txtPermanentAddress, inputPermanentAddress);
 		
-		textBoxPage.clickSubmitButton();
+		textBoxPage.testBasic.clickByLocator(textBoxPage.btnSubmit);
 		
 		String actualFullName = textBoxPage.getTextResult(textBoxPage.lbName);
 		String actualEmail = textBoxPage.getTextResult(textBoxPage.lbEmail);
@@ -57,12 +57,12 @@ public class TextBoxTest extends TestCase{
 		String inputCurrentAddress = "Ha Noi";
 		String inputPermanentAddress = "Ha Noi";
 		
-		textBoxPage.inputFullName(inputFullName);
-		textBoxPage.inputEmail(inputEmail);
-		textBoxPage.inputCurrentAddress(inputCurrentAddress);
-		textBoxPage.inputPermanentAddress(inputPermanentAddress);
+		textBoxPage.testBasic.inputText(textBoxPage.txtFullName, inputFullName);
+		textBoxPage.testBasic.inputText(textBoxPage.txtEmail, inputEmail);
+		textBoxPage.testBasic.inputText(textBoxPage.txtCurrentAddress, inputCurrentAddress);
+		textBoxPage.testBasic.inputText(textBoxPage.txtPermanentAddress, inputPermanentAddress);
 		
-		textBoxPage.clickSubmitButton();
+		textBoxPage.testBasic.clickByLocator(textBoxPage.btnSubmit);
 		
 		Assert.assertTrue(textBoxPage.isRedBorder(textBoxPage.txtEmail));
 		

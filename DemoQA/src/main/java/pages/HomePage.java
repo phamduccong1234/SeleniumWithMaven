@@ -31,7 +31,7 @@ public class HomePage extends Page {
 
 	// Dùng hàm khởi tạo (constructor) để truyền Driver
 	public HomePage(WebDriver dr) {
-		driver = dr;
+		super(dr);
 	}
 
 }
