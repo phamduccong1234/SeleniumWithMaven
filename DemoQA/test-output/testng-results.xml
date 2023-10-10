@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
+<<<<<<< HEAD
   <suite started-at="2023-10-05T10:45:19 ICT" name="Default suite" finished-at="2023-10-05T10:45:25 ICT" duration-ms="6171">
     <groups>
     </groups>
@@ -49,10 +50,22 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
           </exception> <!-- java.lang.NullPointerException -->
+=======
+  <suite started-at="2023-10-10T10:03:22 ICT" name="Default suite" finished-at="2023-10-10T10:03:29 ICT" duration-ms="7034">
+    <groups>
+    </groups>
+    <test started-at="2023-10-10T10:03:22 ICT" name="Default test" finished-at="2023-10-10T10:03:29 ICT" duration-ms="7034">
+      <class name="tests.WebTablesTest">
+        <test-method is-config="true" signature="openWebsite()[pri:0, instance:tests.WebTablesTest@515c6049]" started-at="2023-10-10T10:03:22 ICT" name="openWebsite" finished-at="2023-10-10T10:03:28 ICT" duration-ms="5650" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- doTC01 -->
-      </class> <!-- tests.FormsTest -->
+        </test-method> <!-- openWebsite -->
+        <test-method signature="doTC02()[pri:0, instance:tests.WebTablesTest@515c6049]" started-at="2023-10-10T10:03:28 ICT" name="doTC02" finished-at="2023-10-10T10:03:29 ICT" duration-ms="1356" status="PASS">
+>>>>>>> feature/day10
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doTC02 -->
+      </class> <!-- tests.WebTablesTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

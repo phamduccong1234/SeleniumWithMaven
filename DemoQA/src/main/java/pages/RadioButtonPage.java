@@ -8,9 +8,9 @@ import org.openqa.selenium.WebElement;
 
 public class RadioButtonPage extends Page {
 
-	By lbYes = By.xpath("//label[@for='yesRadio']");
+	public By lbYes = By.xpath("//label[@for='yesRadio']");
 
-	By lbImpressive = By.xpath("//label[@for='impressiveRadio']");
+	public By lbImpressive = By.xpath("//label[@for='impressiveRadio']");
 
 	public By rdYes = By.id("yesRadio");
 
@@ -63,7 +63,7 @@ public class RadioButtonPage extends Page {
 	}
 
 	public RadioButtonPage(WebDriver dr) {
-		driver = dr;
+		super(dr);
 	}
 
 }

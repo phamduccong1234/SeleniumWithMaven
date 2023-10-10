@@ -19,8 +19,8 @@ public class RadioButtonTest extends TestCase {
 
 		ElementsPage elementsPage = homePage.clickElements();
 		RadioButtonPage radioButtonPage = elementsPage.clickRadioButtonMenu();
-
-		radioButtonPage.clickYesRadioButton();
+		
+		radioButtonPage.testBasic.clickByLocator(radioButtonPage.lbYes);
 
 		Assert.assertTrue(radioButtonPage.isYesRadioSelected(radioButtonPage.rdYes));
 		Assert.assertFalse(radioButtonPage.isImpressiveRadioSelected(radioButtonPage.rdImpressive));
@@ -30,7 +30,7 @@ public class RadioButtonTest extends TestCase {
 
 		Assert.assertEquals(actualYesRadioString, expedtedYesRadioString);
 		
-		radioButtonPage.clickImpressiveRadioButton();
+		radioButtonPage.testBasic.clickByLocator(radioButtonPage.lbImpressive);
 
 		Assert.assertTrue(radioButtonPage.isImpressiveRadioSelected(radioButtonPage.rdImpressive));
 		Assert.assertFalse(radioButtonPage.isYesRadioSelected(radioButtonPage.rdYes));

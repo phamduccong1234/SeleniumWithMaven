@@ -7,21 +7,22 @@ import org.openqa.selenium.WebElement;
 import common.TestBasic;
 
 public class Page {
-	public WebDriver driver;
-	
+    public WebDriver driver;
 	public TestBasic testBasic = new TestBasic();
 
-	public void scrollToElement(WebElement element) {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true)", element);
-	}
-	
-	public void zoomOutElement(WebElement element) {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("document.body.style.zoom = '80%';");
+	public Page(WebDriver dr) {
+		testBasic.driver = dr;
+		driver = testBasic.driver;
 	}
 
 	public WebElement findElementByLocator(By locator) {
 		return driver.findElement(locator);
 	}
+<<<<<<< HEAD
+=======
+
+	
+	
+
+>>>>>>> feature/day10
 }

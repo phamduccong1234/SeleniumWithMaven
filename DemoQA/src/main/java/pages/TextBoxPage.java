@@ -6,11 +6,11 @@ import org.openqa.selenium.support.Color;
 
 public class TextBoxPage extends Page {
 
-	By txtFullName = By.id("userName");
+	public By txtFullName = By.id("userName");
 	public By txtEmail = By.id("userEmail");
-	By txtCurrentAddress = By.id("currentAddress");
-	By txtPermanentAddress = By.id("permanentAddress");
-	By btnSubmit = By.id("submit");
+	public By txtCurrentAddress = By.id("currentAddress");
+	public By txtPermanentAddress = By.id("permanentAddress");
+	public By btnSubmit = By.id("submit");
 
 	public By lbName = By.id("name");
 	public By lbEmail = By.id("email");
@@ -18,22 +18,6 @@ public class TextBoxPage extends Page {
 	public By lbPermanentAddress = By.xpath("//p[@id='permanentAddress']");
 
 	By clTextBoxEmail = By.xpath("");
-
-	public void inputFullName(String fullName) {
-		driver.findElement(txtFullName).sendKeys(fullName);
-	}
-
-	public void inputEmail(String email) {
-		driver.findElement(txtEmail).sendKeys(email);
-	}
-
-	public void inputCurrentAddress(String currentAddress) {
-		driver.findElement(txtCurrentAddress).sendKeys(currentAddress);
-	}
-
-	public void inputPermanentAddress(String permanentAddress) {
-		driver.findElement(txtPermanentAddress).sendKeys(permanentAddress);
-	}
 
 	public void clickSubmitButton() {
 		driver.findElement(btnSubmit).click();
@@ -55,16 +39,16 @@ public class TextBoxPage extends Page {
 	}
 
 	public boolean isRedBorder(By locator) {
-		boolean result = true;
+		boolean result = false;
 		String cssClassValue = driver.findElement(locator).getAttribute("class");
-		if (!cssClassValue.contains("field-error")) {
-			result = false;
+		if (cssClassValue.contains("field-error")) {
+			result = true;
 		}
 		return result;
 	}
 
 	public TextBoxPage(WebDriver dr) {
-		driver = dr;
+		super(dr);
 	}
 
 }

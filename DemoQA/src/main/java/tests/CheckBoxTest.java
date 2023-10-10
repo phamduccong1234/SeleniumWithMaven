@@ -20,15 +20,15 @@ public class CheckBoxTest extends TestCase {
 		CheckBoxPage checkBoxPage = elementsPage.clickCheckBoxMenu();
 
 		Assert.assertTrue(checkBoxPage.isCheckBoxUnchecked(checkBoxPage.cbHome));
-
-		checkBoxPage.clickHomeCheckBox();
+		
+		checkBoxPage.testBasic.clickByLocator(checkBoxPage.cbHome);
 
 		String expedtedHomeString = "You have selected : home desktop notes commands documents workspace react angular veu office public private classified general downloads wordFile excelFile";
 		String actualHomeString = checkBoxPage.getHomeString();
 
 		Assert.assertEquals(actualHomeString, expedtedHomeString);
 		
-		checkBoxPage.clickExpandAll();
+		checkBoxPage.testBasic.clickByLocator(checkBoxPage.icExpandAll);
 		
 		Assert.assertTrue(checkBoxPage.isDesktopUnchecked(checkBoxPage.cbDesktop));
 		Assert.assertTrue(checkBoxPage.isDocumentsUnchecked(checkBoxPage.cbDocuments));

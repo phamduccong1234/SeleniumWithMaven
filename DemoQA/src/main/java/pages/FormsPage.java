@@ -9,11 +9,11 @@ public class FormsPage extends Page{
 	
 	public PracticeFormPage clickPracticeFormMenu() {
 		driver.findElement(menuPracticeForm).click();
-		return new PracticeFormPage(driver);
+		return new PracticeFormPage(testBasic.driver);
 	}
 
 	public FormsPage(WebDriver dr) {
-		driver = dr;
+		super(dr);
 	}
 	
 	

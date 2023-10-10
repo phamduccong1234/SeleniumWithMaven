@@ -11,6 +11,8 @@ public class ElementsPage extends Page {
 	By menuRadioButton = By.xpath("//span[text()='Radio Button']");
 
 	By menuWebTables = By.xpath("//span[text()='Web Tables']");
+	
+	By menuButtons = By.xpath("//span[text()='Buttons']");
 
 	public TextBoxPage clickTextBoxMenu() {
 		driver.findElement(menuTextBox).click();
@@ -31,9 +33,14 @@ public class ElementsPage extends Page {
 		driver.findElement(menuWebTables).click();
 		return new WebTablesPage(driver);
 	}
+	
+	public ButtonsPage clickButtonsMenu() {
+		driver.findElement(menuButtons).click();
+		return new ButtonsPage(driver);
+	}
 
 	public ElementsPage(WebDriver dr) {
-		driver = dr;
+		super(dr);
 	}
 
 }
