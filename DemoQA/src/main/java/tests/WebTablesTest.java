@@ -59,7 +59,7 @@ public class WebTablesTest extends TestCase{
 		webTablesPage.testBasic.inputText(webTablesPage.txtSalary, inputSalary);
 		webTablesPage.testBasic.inputText(webTablesPage.txtDepartment, inputDepartment);
 		
-		webTablesPage.testBasic.submit(webTablesPage.btnSubmit);
+		webTablesPage.testBasic.submitByLocator(webTablesPage.btnSubmit);
 		
 		webTablesPage.testBasic.clickByLocator(webTablesPage.btnSearch);
 		

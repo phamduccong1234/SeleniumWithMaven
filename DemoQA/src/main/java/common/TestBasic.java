@@ -6,9 +6,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-
-import pages.Page;
 
 public class TestBasic {
 	
@@ -59,12 +56,14 @@ public class TestBasic {
 		driver.findElement(locator).sendKeys(Keys.ENTER);
 	}
 	
-	public void submit(By locator) {
+	public void submitByLocator(By locator) {
 		driver.findElement(locator).submit();
 	}
-<<<<<<< HEAD
-=======
 	
-
->>>>>>> feature/day10
+	
+	//Get Text
+	public String getTextByLocator(By locator) {
+		String text = driver.findElement(locator).getText();
+		return text;
+	}
 }

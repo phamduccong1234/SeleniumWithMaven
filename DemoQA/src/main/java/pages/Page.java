@@ -1,6 +1,5 @@
 package pages;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -18,11 +17,4 @@ public class Page {
 	public WebElement findElementByLocator(By locator) {
 		return driver.findElement(locator);
 	}
-<<<<<<< HEAD
-=======
-
-	
-	
-
->>>>>>> feature/day10
 }

@@ -64,7 +64,7 @@ public class FormsTest extends TestCase {
 		practiceFormPage.testBasic.inputText(practiceFormPage.mnCity, inputCity);
 		practiceFormPage.testBasic.keysEnter(practiceFormPage.mnCity);
 		
-		practiceFormPage.testBasic.submit(practiceFormPage.btnSubmit);
+		practiceFormPage.testBasic.submitByLocator(practiceFormPage.btnSubmit);
 
 		PracticeFormResult practiceFormResult = new PracticeFormResult(testBasic.driver);
 		
