@@ -11,9 +11,9 @@ public class AlertFrameWindowPage extends Page{
 	
 	By menuFrames = By.xpath("//span[text()='Frames']");
 
-	public BrowserWindowPage clickBrowserWindowMenu() {
+	public BrowserWindowsPage clickBrowserWindowMenu() {
 		driver.findElement(menuBrowserWindows).click();
-		return new BrowserWindowPage(driver);
+		return new BrowserWindowsPage(driver);
 	}
 	
 	public AlertsPage clickAlertMenu() {

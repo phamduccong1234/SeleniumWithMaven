@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\phamd\AppData\Local\Temp\testng-eclipse--1736063749\testng-customsuite.xml</span>
+                    <span>C:\Users\phamd\AppData\Local\Temp\testng-eclipse-841639069\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -103,7 +103,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tests.FramesTest" class="method navigator-link" hash-for-method="doTC01Alert">doTC01Alert</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="tests.BrowserWindowsTest" class="method navigator-link" hash-for-method="doTC03">doTC03</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -121,22 +121,25 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">tests.FramesTest</span>
+              <span class="class-name">tests.BrowserWindowsTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="doTC01Alert">
-                  </a> <!-- doTC01Alert -->
-                  <span class="method-name">doTC01Alert</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [This is a sample page] but found []
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-	at org.testng.Assert.assertEquals(Assert.java:132)
-	at org.testng.Assert.assertEquals(Assert.java:656)
-	at org.testng.Assert.assertEquals(Assert.java:666)
-	at tests.FramesTest.doTC01Alert(FramesTest.java:29)
+                  <a name="doTC03">
+                  </a> <!-- doTC03 -->
+                  <span class="method-name">doTC03</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Unable to find element with locator By.tagName: body
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.12.1&apos;, revision: &apos;8e34639b11&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.2&apos;
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:168)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at pages.BrowserWindowsPage.clickNewWindowMessagePage(BrowserWindowsPage.java:75)
+	at tests.BrowserWindowsTest.doTC03(BrowserWindowsTest.java:56)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -172,7 +175,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\phamd\AppData\Local\Temp\testng-eclipse--1736063749\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\phamd\AppData\Local\Temp\testng-eclipse-841639069\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -181,7 +184,7 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;tests.FramesTest&quot;/&gt;
+      &lt;class name=&quot;tests.BrowserWindowsTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -223,14 +226,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'doTC01Alert')
-data.setCell(0, 2, 'tests.FramesTest')
-data.setCell(0, 3, 372);
+data.setCell(0, 1, 'doTC03')
+data.setCell(0, 2, 'tests.BrowserWindowsTest')
+data.setCell(0, 3, 15580);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 372 ms</span>
+              <span class="suite-total-time">Total running time: 15 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -256,7 +259,7 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">tests.FramesTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">tests.BrowserWindowsTest</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">openWebsite</span>
                 <span class="method-start">0 ms</span>
@@ -264,9 +267,13 @@ return data;
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">doTC01Alert</span>
-                <span class="method-start">6902 ms</span>
+                <span class="method-name">doTC03</span>
+                <span class="method-start">23771 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <span class="method-name">closeBrowser</span>
+                <span class="method-start">39363 ms</span>
+              </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

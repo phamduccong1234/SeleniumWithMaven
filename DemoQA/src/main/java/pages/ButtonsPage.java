@@ -20,18 +20,6 @@ public class ButtonsPage extends Page {
 	By lbRightClick = By.id("rightClickMessage");
 	
 	By lbDoubleClick = By.id("doubleClickMessage");
-
-	public void rightClickByLocator(By locator) {
-		Actions action = new Actions(driver);
-		WebElement element = driver.findElement(locator);
-		action.contextClick(element).perform();
-	}
-	
-	public void doubleClickByLocator(By locator) {
-		Actions action = new Actions(driver);
-		WebElement element = driver.findElement(locator);
-		action.doubleClick(element).perform();
-	}
 	
 	public String getClickString() {
 		String resultClick = "";

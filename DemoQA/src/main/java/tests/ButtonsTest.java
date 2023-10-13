@@ -21,8 +21,8 @@ public class ButtonsTest extends TestCase{
 		ButtonsPage buttonsPage = elementsPage.clickButtonsMenu();
 		
 		buttonsPage.testBasic.clickByLocator(buttonsPage.btnClick);
-		buttonsPage.rightClickByLocator(buttonsPage.btnRightClick);
-		buttonsPage.doubleClickByLocator(buttonsPage.btnDoubleClick);
+		buttonsPage.testBasic.rightClickByLocator(buttonsPage.btnRightClick);
+		buttonsPage.testBasic.doubleClickByLocator(buttonsPage.btnDoubleClick);
 		
 		String actualClickString = buttonsPage.getClickString();
 		String actualRightClickString = buttonsPage.getRightClickString();

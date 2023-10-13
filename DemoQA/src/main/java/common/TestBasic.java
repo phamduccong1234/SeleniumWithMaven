@@ -1,16 +1,19 @@
 package common;
 
+import java.util.Set;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 
 public class TestBasic {
 	
 	public WebDriver driver;
-	
 	
 	// Website Event
 	public void openWebsite(String url) {
@@ -52,6 +55,18 @@ public class TestBasic {
 		driver.findElement(locator).click();
 	}
 	
+	public void rightClickByLocator(By locator) {
+		Actions action = new Actions(driver);
+		WebElement element = driver.findElement(locator);
+		action.contextClick(element).perform();
+	}
+	
+	public void doubleClickByLocator(By locator) {
+		Actions action = new Actions(driver);
+		WebElement element = driver.findElement(locator);
+		action.doubleClick(element).perform();
+	}
+	
 	public void keysEnter(By locator) {
 		driver.findElement(locator).sendKeys(Keys.ENTER);
 	}
@@ -66,4 +81,16 @@ public class TestBasic {
 		String text = driver.findElement(locator).getText();
 		return text;
 	}
+	
+	
+	//Switch between tab or window
+//	public void switchToOtherWindow() {
+//		Set<String> windows = driver.getWindowHandles();
+//		
+//		for (String handle : windows) {
+//			if (!handle.equals(browserWindow)) {
+//				driver.switchTo().window(handle);
+//			}
+//		}
+//	}
 }

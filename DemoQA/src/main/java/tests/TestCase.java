@@ -1,6 +1,5 @@
 package tests;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -14,7 +13,7 @@ public class TestCase {
 		testBasic.openWebsite("https://demoqa.com/");
 	}
 	
-//	@AfterTest
+	@AfterTest
 	public void closeBrowser() {
 		testBasic.closeBrowser();
 	}

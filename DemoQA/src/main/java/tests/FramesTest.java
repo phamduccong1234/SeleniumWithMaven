@@ -1,6 +1,5 @@
 package tests;
 
-import org.openqa.selenium.Alert;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
