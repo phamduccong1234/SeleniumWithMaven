@@ -11,6 +11,10 @@ public class HomePage extends Page {
 	By menuFormsXpath = By.xpath("//h5[text()='Forms']");
 	
 	By menuAlertFrameWindowXpath = By.xpath("//h5[text()='Alerts, Frame & Windows']");
+	
+	By menuWidgetsXpath = By.xpath("//h5[text()='Widgets']");
+	
+	By menuBookStoreApplicationXpath = By.xpath("//h5[text()='Book Store Application']");
 
 	public ElementsPage clickElements() {
 		// scroll down to end page
@@ -40,6 +44,26 @@ public class HomePage extends Page {
 		driver.findElement(menuAlertFrameWindowXpath).click();
 
 		return new AlertFrameWindowPage(driver);
+	}
+	
+	public WidgetsPage clickWidgets() {
+		// scroll down to end page
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");
+		// click vao Alert, Frame and Window item
+		driver.findElement(menuWidgetsXpath).click();
+
+		return new WidgetsPage(driver);
+	}
+	
+	public BookStoreApplicationPage clickBookStoreApplication() {
+		// scroll down to end page
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");
+		// click vao Alert, Frame and Window item
+		driver.findElement(menuBookStoreApplicationXpath).click();
+
+		return new BookStoreApplicationPage(driver);
 	}
 
 	// Dùng hàm khởi tạo (constructor) để truyền Driver

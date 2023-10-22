@@ -10,6 +10,8 @@ public class AlertFrameWindowPage extends Page{
 	By menuAlerts = By.xpath("//span[text()='Alerts']");
 	
 	By menuFrames = By.xpath("//span[text()='Frames']");
+	
+	public By menuModalDialogs = By.xpath("//span[text()='Modal Dialogs']");
 
 	public BrowserWindowsPage clickBrowserWindowMenu() {
 		driver.findElement(menuBrowserWindows).click();
@@ -24,6 +26,11 @@ public class AlertFrameWindowPage extends Page{
 	public FramesPage clickFramesMenu() {
 		driver.findElement(menuFrames).click();
 		return new FramesPage(driver);
+	}
+	
+	public ModalDialogsPage clickModalDialogsMenu() {
+		driver.findElement(menuModalDialogs).click();
+		return new ModalDialogsPage(driver);
 	}
 
 	public AlertFrameWindowPage(WebDriver dr) {

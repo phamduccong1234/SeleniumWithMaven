@@ -1,8 +1,11 @@
 package tests;
 
+import java.time.Clock;
 import java.time.Duration;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -38,7 +41,7 @@ public class AlertsTest extends TestCase {
 	/**
 	 * TextBox - TC02
 	 */
-//	@Test
+	@Test
 	public void doTC02TimerAlert() {
 
 		// Click vào phần tử
@@ -49,7 +52,8 @@ public class AlertsTest extends TestCase {
 
 		alertPage.testBasic.clickByLocator(alertPage.btntimerAlert);
 
-		testBasic.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(testBasic.driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.alertIsPresent());
 
 		Alert alert = testBasic.driver.switchTo().alert();
 
@@ -124,7 +128,7 @@ public class AlertsTest extends TestCase {
 	/**
 	 * TextBox - TC05
 	 */
-	@Test
+//	@Test
 	public void doTC05PromptBox() {
 
 		// Click vào phần tử

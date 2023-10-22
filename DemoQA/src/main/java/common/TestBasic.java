@@ -50,7 +50,7 @@ public class TestBasic {
 	}
 	
 	
-	// Click, Submit Event
+	// Action, Click, Submit Event
 	public void clickByLocator(By locator) {
 		driver.findElement(locator).click();
 	}

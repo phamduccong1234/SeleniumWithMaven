@@ -13,7 +13,7 @@ public class TestCase {
 		testBasic.openWebsite("https://demoqa.com/");
 	}
 	
-	@AfterTest
+//	@AfterTest
 	public void closeBrowser() {
 		testBasic.closeBrowser();
 	}
