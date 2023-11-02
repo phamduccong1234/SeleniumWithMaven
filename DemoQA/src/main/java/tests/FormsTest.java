@@ -1,11 +1,15 @@
 package tests;
 
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import common.Utils;
 import pages.FormsPage;
 import pages.HomePage;
 import pages.PracticeFormPage;
@@ -18,13 +22,15 @@ public class FormsTest extends TestCase {
 	 */
 	@Test(description = "TC01 - Submit data successfully", dataProvider = "FormData")
 	public void submitDataSuccessfully(String inputFirstName, String inputLastName, String inputEmail,
-			String inputGender, String inputDay, String inputMonth, String inputYear, String inputUserNumber,
-			String inputSubject1, String inputSubject2, String inputCurrentAddress, String inputCheckbox1,
-			String inputCheckbox2, String inputState, String inputCity) {
+			String inputGender, String inputYear, String inputMonth, String inputDay, String inputUserNumber,
+			String inputSubject, String inputCurrentAddress, String inputCheckbox1, String inputCheckbox2,
+			String inputState, String inputCity) {
 		HomePage homePage = new HomePage(testBasic.driver);
 
 		FormsPage formsPage = homePage.clickForms();
 		PracticeFormPage practiceFormPage = formsPage.clickPracticeFormMenu();
+
+		List<String> lsSubject = practiceFormPage.getStringSubject(inputSubject);
 
 		practiceFormPage.testBasic.inputText(practiceFormPage.txtFirstName, inputFirstName);
 		practiceFormPage.testBasic.inputText(practiceFormPage.txtLastName, inputLastName);
@@ -32,10 +38,11 @@ public class FormsTest extends TestCase {
 		practiceFormPage.clickRadioButtonByLabel(inputGender);
 		practiceFormPage.testBasic.inputText(practiceFormPage.txtUserNumber, inputUserNumber);
 		practiceFormPage.selectDateOfBirth(inputYear, inputMonth, inputDay);
-		practiceFormPage.testBasic.inputText(practiceFormPage.txtSubject, inputSubject1);
-		practiceFormPage.testBasic.keysEnter(practiceFormPage.txtSubject);
-		practiceFormPage.testBasic.inputText(practiceFormPage.txtSubject, inputSubject2);
-		practiceFormPage.testBasic.keysEnter(practiceFormPage.txtSubject);
+		practiceFormPage.inputListSubject(lsSubject);
+//		practiceFormPage.testBasic.inputText(practiceFormPage.txtSubject, inputSubject);
+//		practiceFormPage.testBasic.keysEnter(practiceFormPage.txtSubject);
+//		practiceFormPage.testBasic.inputText(practiceFormPage.txtSubject, inputSubject2);
+//		practiceFormPage.testBasic.keysEnter(practiceFormPage.txtSubject);
 		practiceFormPage.clickCheckboxByLabel(inputCheckbox1);
 		practiceFormPage.clickCheckboxByLabel(inputCheckbox2);
 		practiceFormPage.inputUploadPicture();
@@ -71,7 +78,7 @@ public class FormsTest extends TestCase {
 		String expectedGender = inputGender;
 		String expectedMobile = inputUserNumber;
 		String expectedDateOfBirth = "0" + inputDay + " " + inputMonth + "," + inputYear;
-		String expectedSubjects = inputSubject1 + ", " + inputSubject2;
+		String expectedSubjects = practiceFormPage.expectedListSubject(lsSubject);
 		String expectedHobbies = inputCheckbox1 + ", " + inputCheckbox2;
 		String expectedPicture = "Cong.jpg";
 		String expectedAddress = inputCurrentAddress;
@@ -92,45 +99,52 @@ public class FormsTest extends TestCase {
 
 	@DataProvider(name = "FormData")
 	public String[][] formData() {
-		FormData formData = new FormData();
-		
+//		FormData formData = new FormData();
+		Utils utils = new Utils();
+		String[][] dataTable = null;
+		try {
+			dataTable = utils.readDataFromExcel("testdata.xlsx", "PracticeFormTest");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return dataTable;
+
 //		FormData formData = new FormData("Pham", "Cong", "abcd@gmail.com", "Male", "9", "December", "1998",
 //				"0355373838", "Maths", "English", "Ha Noi", "Sports", "Reading", "NCR", "Delhi");
-		
-		formData.inputFirstName = "Pham";
-		formData.inputLastName = "Cong";
-		formData.inputEmail = "abcd@gmail.com";
-		formData.inputGender = "Male";
-		formData.inputDay = "9";
-		formData.inputMonth = "December";
-		formData.inputYear = "1998";
-		formData.inputUserNumber = "0355373838";
-		formData.inputSubject1 = "Maths";
-		formData.inputSubject2 = "English";
-		formData.inputCurrentAddress = "Ha Noi";
-		formData.inputCheckbox1 = "Sports";
-		formData.inputCheckbox2 = "Reading";
-		formData.inputState = "NCR";
-		formData.inputCity = "Delhi";
 
-		String[][] listInput = new String[1][15];
-		listInput[0][0] = formData.inputFirstName;
-		listInput[0][1] = formData.inputLastName;
-		listInput[0][2] = formData.inputEmail;
-		listInput[0][3] = formData.inputGender;
-		listInput[0][4] = formData.inputDay;
-		listInput[0][5] = formData.inputMonth;
-		listInput[0][6] = formData.inputYear;
-		listInput[0][7] = formData.inputUserNumber;
-		listInput[0][8] = formData.inputSubject1;
-		listInput[0][9] = formData.inputSubject2;
-		listInput[0][10] = formData.inputCurrentAddress;
-		listInput[0][11] = formData.inputCheckbox1;
-		listInput[0][12] = formData.inputCheckbox2;
-		listInput[0][13] = formData.inputState;
-		listInput[0][14] = formData.inputCity;
+//		formData.inputFirstName = "Pham";
+//		formData.inputLastName = "Cong";
+//		formData.inputEmail = "abcd@gmail.com";
+//		formData.inputGender = "Male";
+//		formData.inputDay = "9";
+//		formData.inputMonth = "December";
+//		formData.inputYear = "1998";
+//		formData.inputUserNumber = "0355373838";
+//		formData.inputSubject1 = "Maths";
+//		formData.inputSubject2 = "English";
+//		formData.inputCurrentAddress = "Ha Noi";
+//		formData.inputCheckbox1 = "Sports";
+//		formData.inputCheckbox2 = "Reading";
+//		formData.inputState = "NCR";
+//		formData.inputCity = "Delhi";
 
-		return listInput;
+//		String[][] listInput = new String[1][15];
+//		listInput[0][0] = formData.inputFirstName;
+//		listInput[0][1] = formData.inputLastName;
+//		listInput[0][2] = formData.inputEmail;
+//		listInput[0][3] = formData.inputGender;
+//		listInput[0][4] = formData.inputDay;
+//		listInput[0][5] = formData.inputMonth;
+//		listInput[0][6] = formData.inputYear;
+//		listInput[0][7] = formData.inputUserNumber;
+//		listInput[0][8] = formData.inputSubject1;
+//		listInput[0][9] = formData.inputSubject2;
+//		listInput[0][10] = formData.inputCurrentAddress;
+//		listInput[0][11] = formData.inputCheckbox1;
+//		listInput[0][12] = formData.inputCheckbox2;
+//		listInput[0][13] = formData.inputState;
+//		listInput[0][14] = formData.inputCity;
 
 	}
 

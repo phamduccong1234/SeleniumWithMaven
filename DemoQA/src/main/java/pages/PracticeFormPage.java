@@ -1,5 +1,6 @@
 package pages;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -64,6 +65,36 @@ public class PracticeFormPage extends Page {
 	public void inputUploadPicture() {
 		driver.findElement(txtUploadPicture)
 				.sendKeys(System.getProperty("user.dir") + "/src/main/resources/images/Cong.jpg");
+	}
+	
+	public List<String> getStringSubject(String subject) {
+		String[] result = subject.split(";");
+		List<String> lsSubject = new ArrayList<>();
+		for(String s : result) {
+			if(!s.isBlank()) {
+				lsSubject.add(s);
+			}
+		}
+		return lsSubject;
+	}
+	
+	public void inputListSubject(List<String> values) {
+		for (String s : values) {
+			testBasic.inputText(txtSubject, s);
+			testBasic.keysEnter(txtSubject);
+		}
+	}
+	
+	public String expectedListSubject(List<String> values) {
+		String result = "";
+		int size = values.size();
+		for(int i = 0; i < size; i++) {
+			result += values.get(i);
+			if(i < size - 1) {
+				result += ", ";
+			}
+		}
+		return result;
 	}
 
 	public PracticeFormPage(WebDriver dr) {
