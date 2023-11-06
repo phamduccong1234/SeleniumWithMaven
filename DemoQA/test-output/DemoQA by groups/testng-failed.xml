@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [DemoQA by groups]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="GRP-AlertTest(failed)">
+    <groups>
+      <run>
+        <include name="AlertTest"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="tests.AlertsTest">
+        <methods>
+          <include name="openWebsite"/>
+          <include name="doTC02TimerAlert"/>
+          <include name="closeBrowser"/>
+        </methods>
+      </class> <!-- tests.AlertsTest -->
+    </classes>
+  </test> <!-- GRP-AlertTest(failed) -->
+</suite> <!-- Failed suite [DemoQA by groups] -->

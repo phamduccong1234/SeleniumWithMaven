@@ -6,6 +6,7 @@
       <class name="tests.FormsTest">
         <methods>
           <include name="openWebsite"/>
+          <include name="closeBrowser"/>
           <include name="submitDataSuccessfully" invocation-numbers="1"/>
         </methods>
       </class> <!-- tests.FormsTest -->

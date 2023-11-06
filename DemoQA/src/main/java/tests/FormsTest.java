@@ -102,12 +102,7 @@ public class FormsTest extends TestCase {
 //		FormData formData = new FormData();
 		Utils utils = new Utils();
 		String[][] dataTable = null;
-		try {
-			dataTable = utils.readDataFromExcel("testdata.xlsx", "PracticeFormTest");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		dataTable = utils.readDataFromExcel("testdata.xlsx", "PracticeFormTest");
 		return dataTable;
 
 //		FormData formData = new FormData("Pham", "Cong", "abcd@gmail.com", "Male", "9", "December", "1998",

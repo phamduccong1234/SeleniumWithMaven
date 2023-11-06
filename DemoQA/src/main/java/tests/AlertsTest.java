@@ -17,7 +17,7 @@ public class AlertsTest extends TestCase {
 	/**
 	 * TextBox - TC01
 	 */
-//	@Test
+	@Test(groups = {"AlertTest"})
 	public void doTC01Alert() {
 
 		// Click vào phần tử
@@ -41,7 +41,7 @@ public class AlertsTest extends TestCase {
 	/**
 	 * TextBox - TC02
 	 */
-	@Test
+	@Test(groups = {"AlertTest"})
 	public void doTC02TimerAlert() {
 
 		// Click vào phần tử
@@ -68,7 +68,7 @@ public class AlertsTest extends TestCase {
 	/**
 	 * TextBox - TC03
 	 */
-//	@Test
+	@Test(groups = {"AlertTest"})
 	public void doTC03ConfirmOK() {
 
 		// Click vào phần tử
@@ -98,7 +98,7 @@ public class AlertsTest extends TestCase {
 	/**
 	 * TextBox - TC04
 	 */
-//	@Test
+	@Test(groups = {"AlertTest"})
 	public void doTC04ConfirmCancel() {
 
 		// Click vào phần tử
@@ -128,7 +128,7 @@ public class AlertsTest extends TestCase {
 	/**
 	 * TextBox - TC05
 	 */
-//	@Test
+	@Test(groups = {"AlertTest"})
 	public void doTC05PromptBox() {
 
 		// Click vào phần tử

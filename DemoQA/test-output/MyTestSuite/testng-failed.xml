@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [MyTestSuite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Group1Tests(failed)">
+    <groups>
+      <run>
+        <include name="AlertTest"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="tests.AlertsTest">
+        <methods>
+          <include name="doTC03ConfirmOK"/>
+          <include name="doTC04ConfirmCancel"/>
+          <include name="doTC01Alert"/>
+          <include name="doTC05PromptBox"/>
+          <include name="doTC02TimerAlert"/>
+        </methods>
+      </class> <!-- tests.AlertsTest -->
+    </classes>
+  </test> <!-- Group1Tests(failed) -->
+</suite> <!-- Failed suite [MyTestSuite] -->
